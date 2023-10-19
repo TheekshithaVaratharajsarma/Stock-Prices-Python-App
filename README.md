@@ -11,3 +11,5 @@ The following are values recorded each day for each company:
                         Volume : The amount of stocks traded
 
 The data used is from : https://www.kaggle.com/datasets/suddharshan/historical-stock-price-of-10-popular-companies
+
+Note that the preprocessing is done separately and the finalized data is used to build the dash app. All the required datasets are uploaded as excel files.
