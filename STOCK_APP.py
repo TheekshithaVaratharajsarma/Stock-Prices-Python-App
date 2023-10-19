@@ -22,6 +22,7 @@ pivoted_df = pivoted_df.dropna()
 pivoted_df = pivoted_df.loc['2021-01-01':'2021-12-31']
 
 app = dash.Dash(title="Stocks App", external_stylesheets=[dbc.themes.MATERIA])
+server = app.server
 app.title = "Stock Prices"
 load_figure_template('MATERIA')
 
