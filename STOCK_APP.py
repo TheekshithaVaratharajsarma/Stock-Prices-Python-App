@@ -14,7 +14,7 @@ from dash_bootstrap_templates import load_figure_template
 import plotly.graph_objects as go
 from datetime import datetime
 
-df = pd.read_excel(r"C:\Users\user\OneDrive\Desktop\Second Year\Python Visualization & Dash\FINAL APP\StockData.xlsx")
+df = pd.read_excel("StockData.xlsx")
 df['Date'] = pd.to_datetime(df['Date'])
 
 pivoted_df = df.pivot(index='Date', columns='Company', values='High')
