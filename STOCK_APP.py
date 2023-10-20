@@ -21,17 +21,18 @@ pivoted_df = df.pivot(index='Date', columns='Company', values='High')
 pivoted_df = pivoted_df.dropna()
 pivoted_df = pivoted_df.loc['2021-01-01':'2021-12-31']
 
-app = dash.Dash(title="Stocks App", external_stylesheets=[dbc.themes.MATERIA])
+app = dash.Dash(title="Stocks App", external_stylesheets=[dbc.themes.BOOTSTRAP])  # Changed theme to BOOTSTRAP
 server = app.server
 app.title = "Stock Prices"
-load_figure_template('MATERIA')
+load_figure_template('BOOTSTRAP')  # Changed theme to BOOTSTRAP
 
 # Define the title and footer
 title = html.Div(
     children=[
         html.H1(
             "STOCK MARKET ANALYSIS",
-            style={'font-size': '30px', 'text-align': 'center', 'font-weight': 'bold','color':'#060233','backgroundColor':'#a2b8eb','margin':'8px','padding':'5px'}
+            style={'font-size': '30px', 'text-align': 'center', 'font-weight': 'bold', 'color': '#060233',
+                   'backgroundColor': '#a2b8eb', 'margin': '8px', 'padding': '5px'}
         )
     ]
 )
@@ -40,20 +41,22 @@ footer = html.Div(
     children=[
         html.Div(
             [
-                html.P('CREATED BY:', style={'font-size': '12px', 'text-align': 'center', 'font-weight': 'bold', 'color': 'black'}),
-                html.P('THEEKSHITHA VARATHARAJSARMA', style={'font-size': '12px', 'text-align': 'center', 'font-weight': 'bold', 'color': 'black'}),
+                html.P('CREATED BY:', style={'font-size': '12px', 'text-align': 'center', 'font-weight': 'bold',
+                                              'color': 'black'}),
+                html.P('THEEKSHITHA VARATHARAJSARMA', style={'font-size': '12px', 'text-align': 'center',
+                                                            'font-weight': 'bold', 'color': 'black'}),
             ],
-            style={'background-color': '#d5e6f5', 'padding': '3px', 'border-radius': '5px', 'margin-bottom': '0px','position': 'fixed', 'bottom': '0', 'left': '85%', 'width': '15%'}
+            style={'background-color': '#d5e6f5', 'padding': '3px', 'border-radius': '5px', 'margin-bottom': '0px',
+                   'position': 'fixed', 'bottom': '0', 'left': '85%', 'width': '15%'}
         )
     ]
 )
 
-style={'text-align': 'center',
-       'padding': '0px 15px 0px 15px',
-       'background-color': 'white',
-       'height': 'calc(100vh - 175px)',
-       'font-weight': 'bold',
-       'color':'#06314f'}
+style = {'text-align': 'center',
+         'padding': '0px 15px 0px 15px',
+         'background-color': 'white',
+         'font-weight': 'bold',
+         'color': '#06314f'}
 
 app.layout = html.Div([
     title,
@@ -100,7 +103,7 @@ app.layout = html.Div([
             ),
         ]
     ),
-    html.Div(id='tabs-content-classes'),   
+    html.Div(id='tabs-content-classes'),
     footer
 ])
 
@@ -115,9 +118,9 @@ def render_content(tab):
                         '''
                         This dashboard analyzes the stock prices for some of the biggest companies  
                         during a six-year period of 2015 - 2021
-                        ''' 
+                        '''
                     ),
-                    style={'fontSize':'30px','textAlign': 'center','color':'#3c3896','marginTop': '42px'}
+                    style={'fontSize': '30px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px'}
                 ),
                 html.H5(
                     dcc.Markdown(
@@ -133,8 +136,8 @@ def render_content(tab):
                         Walmart,
                         Zoom
                         '''
-                     ),
-                   style={'fontSize': '18px','textAlign': 'center','color':'#040636'}
+                    ),
+                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636'}
                 ),
                 html.H6(
                     dcc.Markdown(
@@ -155,17 +158,17 @@ def render_content(tab):
                         
                         Volume : The amount of stocks traded
                         '''
-                     ),
-                   style={'fontSize': '13.5px','textAlign': 'center', 'marginBottom': '0px','marginTop': '65px'}
+                    ),
+                    style={'fontSize': '13.5px', 'textAlign': 'center', 'marginBottom': '0px', 'marginTop': '65px'}
                 ),
                 html.Img(
                     src="https://camo.githubusercontent.com/af9dec3649e8fbb13ea37855b9df15809ae6bb40d1902e86a898d11278d3b75d/68747470733a2f2f7777772e7063722d6f6e6c696e652e62697a2f77702d636f6e74656e742f75706c6f6164732f6661616e672d6f776e2d6c6f676f2d363630783333302e6a7067",
                     style={'max-width': '80%', 'height': 'auto', 'display': 'block', 'margin': '0 auto', 'max-height': '140px'}
-                ),
+                    ),
             ],
             style={'text-align': 'center',
                    'height': 'calc(100vh - 175px)',  # Adjusted height to fit
-       } )
+                   })
     elif tab == 'tab-2':
         filtered_df = df[df['Date'].dt.year >= 2015]
         date_range_min = filtered_df['Date'].min().timestamp()
@@ -175,7 +178,8 @@ def render_content(tab):
 
         return html.Div([
             html.H6('Number of Shares Traded by Time'),
-            html.P("Select the company of interest", style={'font-weight': 'normal','fontSize':'13px','color':'#5580e6'}),
+            html.P("Select the company of interest",
+                   style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
             dcc.Dropdown(
                 id="Company",
                 value=['Amazon'],
@@ -184,7 +188,7 @@ def render_content(tab):
                 style={'font-weight': 'normal'},
             ),
             dcc.Graph(id="line1"),
-            
+
             html.Div([
                 dcc.RangeSlider(
                     id='date-range-slider',
@@ -196,14 +200,14 @@ def render_content(tab):
                     pushable=1
                 ),
             ]),
-            html.P("Select the date range preferred", style={'font-weight': 'normal','fontSize':'13px','color':'#5580e6'}),  # Added text below the center-aligned header
+            html.P("Select the date range preferred", style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
         ],
-        style=style)
+            style=style)
     elif tab == 'tab-3':
         return html.Div(
             children=[
                 html.H6('Scatter Plot of Stock Prices'),
-                html.P("Select the y axis preferred", style={'font-weight': 'normal','fontSize':'13px','color':'#5580e6'}),
+                html.P("Select the y axis preferred", style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
                 dcc.RadioItems(
                     id="y_axis",
                     options=[
@@ -213,7 +217,7 @@ def render_content(tab):
                         {'label': 'Close', 'value': 'Close'},
                         {'label': 'Adj Close', 'value': 'Adj Close'}
                     ],
-                    style = {'font-weight': 'normal','fontSize':'12px'},
+                    style={'font-weight': 'normal', 'fontSize': '12px'},
                     value='Close'
                 ),
                 dcc.Graph(
@@ -239,20 +243,20 @@ def render_content(tab):
         )
 
         return html.Div([html.H6("Overall Values for the 6 Year Period"),
-                         html.P("Click on the bars to select the company.", style={'font-weight': 'normal','fontSize':'13px','color':'#5580e6'}),
+                         html.P("Click on the bars to select the company.", style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
             html.Div([
                 dcc.Graph(id="bar-chart", figure=fig),
-            ], style={'width': '50%','display': 'inline-block'}),  # Set width and display to inline-block for side-by-side layout
+            ], style={'width': '100%', 'display': 'inline-block'}),  # Set width to 100% for full-width layout
             html.Div([
                 dcc.Graph(id="box-plots")
-            ], style={'width': '50%','display': 'inline-block'})  # Set width and display to inline-block for side-by-side layout
+            ], style={'width': '100%', 'display': 'inline-block'})  # Set width to 100% for full-width layout
         ],
-        style=style)
+            style=style)
 
     elif tab == 'tab-5':
         return html.Div([
             html.H6('Highest Price Reached in 2021'),
-            html.P("Select the companies below", style={'font-weight': 'normal','fontSize':'13px','color':'#5580e6'}),
+            html.P("Select the companies below", style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
             dcc.Dropdown(
                 id="x-axis-dropdown",
                 options=[{'label': company, 'value': company} for company in pivoted_df.columns],
@@ -268,10 +272,11 @@ def render_content(tab):
                 multi=False
             ),
             dcc.Graph(id="scatter-plot"),
-            html.P("Click on the desired point on the chart above to see more details", style={'font-weight': 'normal','fontSize':'13px','color':'#5580e6'}),
+            html.P("Click on the desired point on the chart above to see more details",
+                   style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
             html.Div(id="grouped-bar-chart")
         ],
-        style=style)
+            style=style)
 ###############################3
 @app.callback(
     Output("line1", "figure"),
@@ -280,8 +285,9 @@ def render_content(tab):
     Input('date-range-slider', 'value')
 )
 def update_line_chart(company, dates):
-    filtered_df = df[df['Company'].isin(company) & df['Date'].between(pd.to_datetime(dates[0], unit='s'), pd.to_datetime(dates[1], unit='s'))]
-    
+    filtered_df = df[df['Company'].isin(company) & df['Date'].between(pd.to_datetime(dates[0], unit='s'),
+                                                                    pd.to_datetime(dates[1], unit='s'))]
+
     # Generate the marks based on the filtered data
     years = filtered_df['Date'].dt.year.unique()
     marks = {pd.Timestamp(f'{year}-01-01').timestamp(): {'label': str(year)} for year in years}
@@ -296,7 +302,7 @@ def update_line_chart(company, dates):
         xaxis_title="Date",
         yaxis_title="Volume",
         title_x=0.5,
-        height = 420
+        height=420
     )
     return fig, marks  # Return both the updated figure and marks
 
@@ -327,7 +333,7 @@ def update_scatter_chart(value):
         xaxis_title="Number of shares traded",
         yaxis_title=value,
         title_x=0.5,
-        height = 440
+        height=440
     )
 
     return fig
@@ -393,7 +399,7 @@ def update_scatter_plot(x_axis, y_axis):
 def update_grouped_bar_chart(click_data, company1, company2):
     if click_data is None:
         # Set default click data to the first point in the scatter plot
-        default_click_data = {"points": [{"text": pivoted_df.index[0].strftime("%Y-%m-%d")}]}
+        default_click_data = {"points": [{"text": pivoted_df.index[0].strftime("%Y-%m-d")}]}
         click_data = default_click_data
 
     selected_date_str = click_data["points"][0]["text"]
@@ -403,7 +409,7 @@ def update_grouped_bar_chart(click_data, company1, company2):
     filtered_df = df[
         (df["Company"].isin(selected_companies)) & (df["Date"].dt.date == selected_date)
     ]
-    
+
     colors = ['#75fa97', '#75faed', '#75c3fa', '#a175fa', '#dd75fa']
 
     fig = go.Figure()
