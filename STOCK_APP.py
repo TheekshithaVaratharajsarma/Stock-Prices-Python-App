@@ -47,7 +47,7 @@ footer = html.Div(
             ],
             id='footer',
             style={'background-color': '#d5e6f5', 'padding': '3px', 'border-radius': '5px', 'margin-bottom': '0px',
-                   'position': 'fixed', 'bottom': '0', 'left': '85%', 'width': '15%'}
+                   'position': 'fixed', 'bottom': '10%', 'left': '85%', 'width': '15%', 'z-index':999}
         )
     ]
 )
