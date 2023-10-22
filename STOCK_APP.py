@@ -41,11 +41,11 @@ footer = html.Div(
             [
                 html.P('CREATED BY:', style={'font-size': '12px', 'text-align': 'center', 'font-weight': 'bold',
                                               'color': 'black'}),
-                html.P('Theekshitha V', style={'font-size': '12px', 'text-align': 'center',
+                html.P('Theekshitha V', style={'font-size': '11px', 'text-align': 'center',
                                                             'font-weight': 'bold', 'color': 'black'}),
             ],
             style={'background-color': '#d5e6f5', 'padding': '3px', 'border-radius': '5px', 'margin-bottom': '0px',
-                   'position': 'fixed', 'bottom': '0', 'left': '85%', 'width': '23%'}
+                   'position': 'fixed', 'bottom': '0', 'left': '77%', 'width': '23%'}
         )
     ]
 )
@@ -118,7 +118,7 @@ def render_content(tab):
                         during a six-year period of 2015 - 2021
                         '''
                     ),
-                    style={'fontSize': '25px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px','padding': '20px'}
+                    style={'fontSize': '25px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px','paddingLeft': '20px','paddingRight': '20px'}
                 ),
                 html.H5(
                     dcc.Markdown(
@@ -135,7 +135,7 @@ def render_content(tab):
                         Zoom
                         '''
                     ),
-                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636','padding': '20px'}
+                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636','paddingLeft': '20px','paddingRight': '20px'}
                 ),
                 html.H6(
                     dcc.Markdown(
