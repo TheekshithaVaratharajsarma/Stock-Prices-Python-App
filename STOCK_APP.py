@@ -41,7 +41,7 @@ footer = html.Div(
             [
                 html.P('CREATED BY:', style={'font-size': '12px', 'text-align': 'center', 'font-weight': 'bold',
                                               'color': 'black'}),
-                html.P('THEEKSHITHA VARATHARAJSARMA', style={'font-size': '12px', 'text-align': 'center',
+                html.P('Theekshitha V', style={'font-size': '10px', 'text-align': 'center',
                                                             'font-weight': 'bold', 'color': 'black'}),
             ],
             style={'background-color': '#d5e6f5', 'padding': '3px', 'border-radius': '5px', 'margin-bottom': '0px',
