@@ -135,7 +135,7 @@ def render_content(tab):
                         Zoom
                         '''
                     ),
-                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636','padding': '20px'}}
+                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636','padding': '20px'}
                 ),
                 html.H6(
                     dcc.Markdown(
