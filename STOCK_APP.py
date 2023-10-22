@@ -20,12 +20,11 @@ pivoted_df = df.pivot(index='Date', columns='Company', values='High')
 pivoted_df = pivoted_df.dropna()
 pivoted_df = pivoted_df.loc['2021-01-01':'2021-12-31']
 
-app = dash.Dash(title="Stocks App", external_stylesheets=[dbc.themes.BOOTSTRAP])  # Changed theme to BOOTSTRAP
+app = dash.Dash(title="Stocks App", external_stylesheets=[dbc.themes.BOOTSTRAP])  
 server = app.server
 app.title = "Stock Prices"
-load_figure_template('BOOTSTRAP')  # Changed theme to BOOTSTRAP
+load_figure_template('BOOTSTRAP')  
 
-# Define the title and footer
 title = html.Div(
     children=[
         html.H1(
@@ -166,7 +165,7 @@ def render_content(tab):
                     ),
             ],
             style={'text-align': 'center',
-                   'height': 'calc(100vh - 175px)',  # Adjusted height to fit
+                   'height': 'calc(100vh - 175px)',  
                    })
     elif tab == 'tab-2':
         filtered_df = df[df['Date'].dt.year >= 2015]
@@ -245,10 +244,10 @@ def render_content(tab):
                          html.P("Click on the bars to select the company.", style={'font-weight': 'normal', 'fontSize': '13px', 'color': '#5580e6'}),
             html.Div([
                 dcc.Graph(id="bar-chart", figure=fig),
-            ], style={'width': '100%', 'display': 'inline-block'}),  # Set width to 100% for full-width layout
+            ], style={'width': '100%', 'display': 'inline-block'}),  
             html.Div([
                 dcc.Graph(id="box-plots")
-            ], style={'width': '100%', 'display': 'inline-block'})  # Set width to 100% for full-width layout
+            ], style={'width': '100%', 'display': 'inline-block'})  
         ],
             style=style)
 
@@ -279,7 +278,7 @@ def render_content(tab):
 ###############################3
 @app.callback(
     Output("line1", "figure"),
-    Output("date-range-slider", "marks"),  # Update the marks parameter
+    Output("date-range-slider", "marks"),  
     Input("Company", "value"),
     Input('date-range-slider', 'value')
 )
@@ -303,7 +302,7 @@ def update_line_chart(company, dates):
         title_x=0.5,
         height=420
     )
-    return fig, marks  # Return both the updated figure and marks
+    return fig, marks  
 
 @app.callback(
     Output("graph6", "figure"),
@@ -312,7 +311,6 @@ def update_line_chart(company, dates):
 def update_scatter_chart(value):
     filtered_df = df.copy()
 
-    # Calculate correlation
     correlation = filtered_df['Volume'].corr(filtered_df[value])
 
     fig = go.Figure()
@@ -345,7 +343,7 @@ def update_box_plots(click_data):
     if click_data is not None:
         selected_company = click_data['points'][0]['x']
     else:
-        selected_company = 'Microsoft'  # Set default value to 'Microsoft' if no click data is available
+        selected_company = 'Microsoft'  
 
     company_data = df[df['Company'] == selected_company]
     colors = ['#75fa97', '#75faed', '#75c3fa', '#a175fa', '#dd75fa']
@@ -397,7 +395,7 @@ def update_scatter_plot(x_axis, y_axis):
 )
 def update_grouped_bar_chart(click_data, company1, company2):
     if click_data is None:
-        # Set default click data to the first point in the scatter plot
+    
         default_click_data = {"points": [{"text": pivoted_df.index[0].strftime("%Y-%m-d")}]}
         click_data = default_click_data
 
@@ -413,7 +411,7 @@ def update_grouped_bar_chart(click_data, company1, company2):
 
     fig = go.Figure()
 
-    bar_width = 0.7  # Set the desired width of the bars
+    bar_width = 0.7 
 
     for i, column in enumerate(["Open", "High", "Close", "Adj Close", "Low"]):
         fig.add_trace(
@@ -429,7 +427,7 @@ def update_grouped_bar_chart(click_data, company1, company2):
 
     fig.update_layout(
         barmode="group",
-        bargap=0.1,  # Adjust the gap between bars
+        bargap=0.1, 
         title=f"Stock Prices on {selected_date_str}",
         xaxis_title="Company",
         yaxis_title="Price",
