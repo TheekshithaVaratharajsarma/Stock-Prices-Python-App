@@ -118,7 +118,7 @@ def render_content(tab):
                         during a six-year period of 2015 - 2021
                         '''
                     ),
-                    style={'fontSize': '30px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px'}
+                    style={'fontSize': '25px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px'}
                 ),
                 html.H5(
                     dcc.Markdown(
