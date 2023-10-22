@@ -118,7 +118,7 @@ def render_content(tab):
                         during a six-year period of 2015 - 2021
                         '''
                     ),
-                    style={'fontSize': '25px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px','paddingLeft': '20px','paddingRight': '20px'}
+                    style={'fontSize': '25px', 'textAlign': 'center', 'color': '#3c3896', 'marginTop': '42px','paddingLeft': '10px','paddingRight': '10px'}
                 ),
                 html.H5(
                     dcc.Markdown(
@@ -135,7 +135,7 @@ def render_content(tab):
                         Zoom
                         '''
                     ),
-                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636','paddingLeft': '20px','paddingRight': '20px'}
+                    style={'fontSize': '18px', 'textAlign': 'center', 'color': '#040636','paddingLeft': '10px','paddingRight': '10px'}
                 ),
                 html.H6(
                     dcc.Markdown(
@@ -157,7 +157,7 @@ def render_content(tab):
                         Volume : The amount of stocks traded
                         '''
                     ),
-                    style={'fontSize': '13.5px', 'textAlign': 'center', 'marginBottom': '0px', 'marginTop': '65px'}
+                    style={'fontSize': '13.5px', 'textAlign': 'center', 'marginBottom': '0px', 'marginTop': '30px'}
                 ),
                 html.Img(
                     src="https://camo.githubusercontent.com/af9dec3649e8fbb13ea37855b9df15809ae6bb40d1902e86a898d11278d3b75d/68747470733a2f2f7777772e7063722d6f6e6c696e652e62697a2f77702d636f6e74656e742f75706c6f6164732f6661616e672d6f776e2d6c6f676f2d363630783333302e6a7067",
