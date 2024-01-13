@@ -160,7 +160,7 @@ def render_content(tab):
                     style={'fontSize': '13.5px', 'textAlign': 'center', 'marginBottom': '0px', 'marginTop': '50px'}
                 ),
                 html.Img(
-                    src="https://camo.githubusercontent.com/af9dec3649e8fbb13ea37855b9df15809ae6bb40d1902e86a898d11278d3b75d/68747470733a2f2f7777772e7063722d6f6e6c696e652e62697a2f77702d636f6e74656e742f75706c6f6164732f6661616e672d6f776e2d6c6f676f2d363630783333302e6a7067",
+                    src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202106/FAANG_companies_1200x768.jpeg?size=1200:675",
                     style={'max-width': '80%', 'height': 'auto', 'display': 'block', 'margin': '0 auto', 'max-height': '140px'}
                     ),
             ],
